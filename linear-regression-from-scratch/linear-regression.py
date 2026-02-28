@@ -2,8 +2,7 @@ import pandas as pd
 import numpy as np 
 import matplotlib.pyplot as plt 
 
-data = pd.read_csv("dataset.csv")
-
+#----------------Loss Fucntion-----------------#
 def loss_function(w, b, points):
     points = np.array(points)
     
@@ -16,7 +15,8 @@ def loss_function(w, b, points):
     
     return mean_squared_error
 
-def gradient_descent(w, b, points):
+#---------------Gradient Descent Step--------------#
+def gradient_descent(w, b, points, L):
     points = np.array(points)
     n = len(points)
     
@@ -34,8 +34,25 @@ def gradient_descent(w, b, points):
     
     return w, b
 
+#-------------------Training Script--------------#
+def train(points, epochs=1000, L=0.001):
+    n_features = points.shape[1]-1
+    w = np.zeros(n_features)
+    b = 0
+
+    for i in range(epochs):
+        w, b = gradient_descent(w, b, points, L)
+        
+        if i % 100 == 0:
+            loss = loss_function(w, b ,points)
+            print(f"Epochs : {i}, Train loss : {loss}")
+            
+    return w, b
 
     
+    
+        
+
 
 
     
