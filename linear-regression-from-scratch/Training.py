@@ -15,7 +15,7 @@ train_data = points[:split]
 test_data = points[split:]
 
 # Train model
-w, b = train(train_data)
+w, b, losses = train(train_data)
 
 # Evaluate
 test_loss = loss_function(w, b, test_data)

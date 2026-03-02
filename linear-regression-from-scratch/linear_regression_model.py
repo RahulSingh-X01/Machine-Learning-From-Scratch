@@ -35,19 +35,21 @@ def gradient_descent(w, b, points, L):
     return w, b
 
 #-------------------Training Script--------------#
-def train(points, epochs=1000, L=0.001):
+def train(points, epochs=1000, L=0.01):
     n_features = points.shape[1]-1
     w = np.zeros(n_features)
     b = 0
+    
+    losses = []
 
     for i in range(epochs):
         w, b = gradient_descent(w, b, points, L)
         
-        if i % 100 == 0:
-            loss = loss_function(w, b ,points)
-            print(f"Epochs : {i}, Train loss : {loss}")
+        loss = loss_function(w, b ,points)
+        
+        losses.append(loss)
             
-    return w, b
+    return w, b, losses
 
     
     
