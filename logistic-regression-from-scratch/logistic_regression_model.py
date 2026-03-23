@@ -36,4 +36,20 @@ def gradient_desent(w, b, L, points):
     
     return w, b
 
+#----------------Training script--------------#
+def train(points, epochs=1000, L=0.01):
+    n_features = points.shape[1]-1
+    w = np.zeros(n_features)
+    b = 0
+    
+    losses = []
+    
+    for i in range(epochs):
+        w, b = gradient_desent(w, b, L, points)
+        
+        loss = loss_function(w, b, points)
+        
+        losses.append(loss)
+        
+    return w, b, losses
 
