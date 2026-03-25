@@ -49,15 +49,3 @@ def train(points, epochs=1000, L=0.01):
             
     return w, b, losses
 
-    
-    
-        
-
-
-
-    
-        
-        
-        
-        
-        

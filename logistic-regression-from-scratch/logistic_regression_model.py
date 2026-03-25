@@ -17,7 +17,7 @@ def loss_function(w, b, points):
     return binary_cross_entropy
 
 #----------------Gradeint Descent------------#
-def gradient_desent(w, b, L, points):
+def gradient_descent(w, b, L, points):
     points = np.array(points)
     m = len(points)
     
@@ -45,7 +45,7 @@ def train(points, epochs=1000, L=0.01):
     losses = []
     
     for i in range(epochs):
-        w, b = gradient_desent(w, b, L, points)
+        w, b = gradient_descent(w, b, L, points)
         
         loss = loss_function(w, b, points)
         
